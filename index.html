@@ -8,6 +8,88 @@
 </head>
 <body>
     
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Likert Scale</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 20px;
+            }
+    
+            #likertContainer {
+                display: flex;
+                justify-content: space-around;
+                margin: 20px;
+            }
+    
+            .likertItem {
+                text-align: center;
+                padding: 10px;
+                border: 1px solid #ccc;
+                cursor: pointer;
+            }
+    
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h1>Likert Scale</h1>
+    
+        <div id="likertContainer">
+            <div class="likertItem" onclick="selectOption(1)">Strongly Disagree</div>
+            <div class="likertItem" onclick="selectOption(2)">Disagree</div>
+            <div class="likertItem" onclick="selectOption(3)">Neither Agree nor Disagree</div>
+            <div class="likertItem" onclick="selectOption(4)">Agree</div>
+            <div class="likertItem" onclick="selectOption(5)">Strongly Agree</div>
+        </div>
+    
+        <div id="result">Selected option: None</div>
+    
+        <script>
+            let selectedOption = 0;
+    
+            function selectOption(option) {
+                selectedOption = option;
+                updateResult();
+            }
+    
+            function updateResult() {
+                const resultElement = document.getElementById('result');
+                resultElement.textContent = `Selected option: ${getOptionText(selectedOption)}`;
+            }
+    
+            function getOptionText(option) {
+                switch (option) {
+                    case 1:
+                        return 'Strongly Disagree';
+                    case 2:
+                        return 'Disagree';
+                    case 3:
+                        return 'Neither Agree nor Disagree';
+                    case 4:
+                        return 'Agree';
+                    case 5:
+                        return 'Strongly Agree';
+                    default:
+                        return 'None';
+                }
+            }
+        </script>
+    
+    </body>
+    </html>
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
